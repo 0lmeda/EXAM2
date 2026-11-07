@@ -15,7 +15,7 @@ export const createUser = async (username, password) =>{
     const existingUser = users.find(user => user.username === username);
 
     if(existingUser){
-        throw new Error("Username already exists");
+        throw new Error("invalid username or password");
     }
     const  saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -29,5 +29,29 @@ export const createUser = async (username, password) =>{
         id:newUser.id,
         username: newUser.username,
         role: newUser.role
+    }
+};
+
+export const loginUser = async (username, password) =>{
+    const data = await fs.readFile(dataPath, `utf8`);
+
+    const users = JSON.parse(data);
+
+    const user = users.find(u => u.username === username);
+
+    if(!username){
+        throw new Error("Username doesnt exist");
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user.passwordHash);
+
+    if(!passwordMatch){
+        throw new Error ("invalid username or password")
+    }
+
+    return {
+        id: user.id,
+        username: user.username,
+        role: user.role
     }
 };
