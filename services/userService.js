@@ -55,3 +55,23 @@ export const loginUser = async (username, password) =>{
         role: user.role
     }
 };
+
+
+
+export const getUserByID = async (id) =>{
+    const data = await fs.readFile(dataPath, `utf8`);
+
+    const users = JSON.parse(data);
+
+    const user = users.find(u => u.id === id);
+
+    if(!user){
+        return null;
+    }
+
+    return{
+        id: user.id,
+        username: user.username,
+        role: user.role
+    }
+};
