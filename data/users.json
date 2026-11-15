@@ -4,5 +4,17 @@
     "username": "daniel",
     "passwordHash": "$2b$10$zXc7l9Kf49PqofxQ1DpNFOmq5TJbih/KKPUgEJ1h4A0Iyt.1YgL3m",
     "role": "student"
+  },
+  {
+    "id": "1d692c71-43f8-44dc-ace0-a6b3ea405a8d",
+    "username": "disisdaniels@gmail.com",
+    "passwordHash": "$2b$10$P9cgrGpAAoTAMle0aGli3.cQHnknaY004SsIX4gLvg/rUA7B.H2mC",
+    "role": "TA"
+  },
+  {
+    "id": "3cbaa510-034e-414d-85b0-eba580080aaf",
+    "username": "dan",
+    "passwordHash": "$2b$10$BVmuiwj0Ok.ePrjW7HkDqOXQ8HnbONBe.oiRgqNvfQxI2ifHBZyqG",
+    "role": "student"
   }
 ]

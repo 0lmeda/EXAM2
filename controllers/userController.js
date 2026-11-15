@@ -1,7 +1,9 @@
 import {createUser} from "../services/userService.js";
 import {loginUser} from "../services/userService.js";
+import { getAllUsers } from "../services/userService.js";
 export const registerUser = async (req, res) => {
     const {username, password} = req.body;
+
     if (!username || !password){
         return res.status(400).send("Username and password are required for register");
     }
@@ -10,7 +12,7 @@ export const registerUser = async (req, res) => {
         const user = await createUser(username,password);
         res.status(201).json(user);
     }catch(error){
-        if(error.message === "username already exists"){
+        if(error.message === "Username already exists"){
             return res.status(409).send(error.message);
         }
 
@@ -37,5 +39,16 @@ export const login = async(req,res) =>{
         console.error(error);
         return res.status(500).send("Internal server error");
 
+    }
+}
+
+export const getUsers = async (req,res)=>{
+    try{
+        const users = await getAllUsers();
+
+        return res.status(200).render("admin/users", {users});
+    }catch(error){
+        console.log(error);
+        return res.status(500).send("Server Error");
     }
 }
