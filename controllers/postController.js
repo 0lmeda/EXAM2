@@ -1,5 +1,7 @@
 import { createPost, getAllPosts, incrementViews } from "../services/postService.js";
 import { getCommentByPost } from "../services/commentService.js";
+import {getLikesByPost} from "../services/likeService.js"
+import { getBookmarksByPost } from "../services/bookmarkService.js";
 export const showPosts = async(req,res) =>{
     try {
         const posts= await getAllPosts();
@@ -46,8 +48,34 @@ export const lookForPost = async(req,res) =>{
             return res.status(404).send("not found");
         }
         const comments = await getCommentByPost(id);
+        const likes = await getLikesByPost(id);
 
-        return res.status(200).render("post", {post,comments});
+        let hasLiked = false;
+
+        const bookmarks = await getBookmarksByPost(id);
+        let hasBookmarked = false;
+
+
+        if(req.user){
+            for (let i = 0; i<likes.length; i++){
+                if(likes[i].userID === req.user.id){
+                    hasLiked = true;
+                    break;
+                }
+            }
+            for (let i = 0; i<bookmarks.length; i++){
+                if(bookmarks[i].userID === req.user.id){
+                    hasBookmarked = true;
+                    break;
+                }
+            }
+        }
+
+
+
+
+
+        return res.status(200).render("post", {post,comments, likeCount:likes.length, hasLiked, hasBookmarked});
     }catch(error){
         console.error(error);
         return res.status(500).send("Error loading post");
