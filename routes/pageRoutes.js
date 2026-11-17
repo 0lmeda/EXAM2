@@ -4,7 +4,7 @@ import path from "node:path";
 const router = express.Router();
 
 router.get("/" , (req,res) =>{
-    res.sendFile(path.join(import.meta.dirname, "../public/login.html"));
+    res.render("home", {user:req.user});
 });
 
 export default router;

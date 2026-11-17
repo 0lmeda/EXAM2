@@ -5,11 +5,13 @@ import { loginUser, getUserByID} from "../services/userService.js";
 passport.use(new LocalStrategy(async(username,password,done)=>{
     try{
         const user = await loginUser(username,password);
-
+        if(!user){
+            return done(null,false);
+        }
         return done(null,user); //Loggin sucessful
     }catch (error){
         //Invalid password or username
-        if(error.message === "invalid username or password"){
+        if(error.message === "invalid username or password" || error.message === "Username doesnt exist"){
             return done(null, false, {
                 message: "Invalid username or password"
             });

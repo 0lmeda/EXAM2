@@ -30,7 +30,7 @@ export const publishPost = async (req,res) =>{
 
     try{
         const post = await createPost(authorID, title,topic,content,img);
-        return res.status(201).json(post);
+        return res.redirect("/posts");
     }catch(error){
         console.error(error);
         return res.status(500).send("Error creating post");

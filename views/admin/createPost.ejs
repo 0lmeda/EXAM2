@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <%- include("../partials/navbar") %>
-</body>
 
+    <main>
     <h1>Create a Post</h1>
 
     <form action="/posts" method="POST">
@@ -28,3 +29,8 @@
         <input type="text" id="img" name="img">
 
         <button type="submit">Publish</button>
+    </main>
+
+</body>
+
+</html>

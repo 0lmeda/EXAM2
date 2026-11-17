@@ -14,7 +14,7 @@
     <% if(user) {%>
         <h2>Hello, <%= user.username%></h2>
 
-        <a href="/posts">view posts</a>
+        <p>This website was made to read post from our TA mates. You can find posts and explanation of different topics.</p>
 
         <%if (user.role==="Ta"){%>
             <a href="/admin/posts/new">Create post</a>

@@ -1,20 +1,8 @@
 [
   {
-    "id": "259e9854-4504-4121-99fb-8bace1544d56",
-    "username": "daniel",
-    "passwordHash": "$2b$10$zXc7l9Kf49PqofxQ1DpNFOmq5TJbih/KKPUgEJ1h4A0Iyt.1YgL3m",
-    "role": "student"
-  },
-  {
-    "id": "1d692c71-43f8-44dc-ace0-a6b3ea405a8d",
-    "username": "disisdaniels@gmail.com",
-    "passwordHash": "$2b$10$P9cgrGpAAoTAMle0aGli3.cQHnknaY004SsIX4gLvg/rUA7B.H2mC",
-    "role": "TA"
-  },
-  {
-    "id": "3cbaa510-034e-414d-85b0-eba580080aaf",
-    "username": "dan",
-    "passwordHash": "$2b$10$BVmuiwj0Ok.ePrjW7HkDqOXQ8HnbONBe.oiRgqNvfQxI2ifHBZyqG",
+    "id": "48961922-ce24-4bf6-a1a0-e9b2089052dd",
+    "username": "student",
+    "passwordHash": "$2b$10$RXoD4McI/y/4QXSDA1xVh.x0bpdLcWsbNc6hnIlm6hQvarLol9j.O",
     "role": "student"
   }
 ]

@@ -1,3 +1,5 @@
+
+
 body {
     font-family: arial, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #f4f4f4;
@@ -32,3 +34,79 @@ h1{
     color: #222
 }
 
+button{
+    background-color: #333;
+    color: wheat;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px 15px;
+}
+
+input, textarea, select{
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea{
+    min-height: 100px;
+}
+
+.post{
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.post a{
+    color: #0066cc;
+}
+
+form{
+    margin-bottom: 15px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container form{
+    width: 350px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,td{
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+td{
+    background-color: #333;
+    color: whitesmoke;
+}
+
+.errorMessage {
+    color: red;
+    background-color: #ffe6e6;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}

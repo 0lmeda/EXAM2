@@ -10,7 +10,7 @@ export const registerUser = async (req, res) => {
 
     try{
         const user = await createUser(username,password);
-        res.status(201).json(user);
+        return res.redirect("/posts")
     }catch(error){
         if(error.message === "Username already exists"){
             return res.status(409).send(error.message);

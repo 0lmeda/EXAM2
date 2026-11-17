@@ -8,8 +8,11 @@
 </head>
 <body>
     <div class="container">
-        <form action="/logIn" method="post">
+        <form action="/login" method="POST">
             <h2>Login</h2>
+            <p id="errorMessage" class="errorMessage" style="display:none ;">
+                Invalid Username or password
+            </p>
             <p class="subtitle">Please log in to your account </p>
             <div class="inputForm">
                 <label for="username">Username</label>
@@ -26,5 +29,12 @@
             <p class="signUpLink">Register instead <a href="./register.html">Sign up</a></p>
         </form>
     </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        if(params.has("error")){
+            document.getElementById("errorMessage").style.display = "block";
+        }
+    </script>
 </body>
 </html>
