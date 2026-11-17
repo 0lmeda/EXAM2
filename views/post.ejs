@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title%></title>
+</head>
+<body>
+    <%- include("partials/navbar")%>
+
+    <article>
+        <h1><%= post.title %></h1>
+        <p>Views <%= post.viewCount %></p>
+        <p>Topic: <%= post.topic %></p>
+
+        <% if (post.image) {%>
+            <img src="<%=post.image%>" alt="Image" width="300px">
+        <% } %>
+
+        <p><%= post.content %></p>
+
+        <p>Published <%= post.datePublished %></p>
+
+        <h2>Comments</h2>
+
+        <% comments.forEach(comment => { %>
+            <p><%= comment.text %></p>
+            <small><%= comment.date %></small>
+            <hr>
+        <% }); %>
+
+        <h3>Add A comment</h3>
+
+        <form action="/posts/<%=post.id%>/comments" method="POST">
+            <textarea name="text" id="textComment" required></textarea>
+            <button type="submit">Submit a comment</button>
+        </form>
+    </article>
+
+    <a href="/posts"> Back to posts</a>
+</body>
+</html>

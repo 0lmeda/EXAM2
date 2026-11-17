@@ -1,5 +1,5 @@
-import { createPost, getAllPosts } from "../services/postService.js";
-
+import { createPost, getAllPosts, incrementViews } from "../services/postService.js";
+import { getCommentByPost } from "../services/commentService.js";
 export const showPosts = async(req,res) =>{
     try {
         const posts= await getAllPosts();
@@ -35,3 +35,21 @@ export const publishPost = async (req,res) =>{
     }
 
 };
+
+export const lookForPost = async(req,res) =>{
+    const id = req.params.id;
+
+    try{
+        const post = await incrementViews(id);
+
+        if(!post){
+            return res.status(404).send("not found");
+        }
+        const comments = await getCommentByPost(id);
+
+        return res.status(200).render("post", {post,comments});
+    }catch(error){
+        console.error(error);
+        return res.status(500).send("Error loading post");
+    }
+}

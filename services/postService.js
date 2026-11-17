@@ -11,8 +11,19 @@ export const getAllPosts = async() =>{
     const posts = JSON.parse(data);
 
     return posts;
-}
+};
 
+export const getPostbyID = async(id) =>{
+    const data = await fs.readFile(dataPath, "utf8");
+    const posts = JSON.parse(data);
+
+    const post = posts.find(p => p.id === id);
+
+    if(!post){
+        return null;
+    }
+    return post;
+}
 
 export const createPost = async(authorID, title, topic, content, img) =>{
     const data = await fs.readFile(dataPath, "utf8");
@@ -31,4 +42,21 @@ export const createPost = async(authorID, title, topic, content, img) =>{
         content: newPost.content,
         img: newPost.image
     }
+}
+
+export const incrementViews = async(id)=>{
+    const data = await fs.readFile(dataPath,"utf8");
+    const posts = JSON.parse(data);
+
+    const post = posts.find(p => p.id === id);
+    
+    if(!post){
+        return null;
+    }
+
+    post.viewCount = (post.viewCount || 0) +1;
+
+    await fs.writeFile(dataPath, JSON.stringify(posts,null,2));
+
+    return post;
 }
