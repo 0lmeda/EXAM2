@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    <main>
+    <h1>Welcome to TA blog</h1>
+
+    <% if(user) {%>
+        <h2>Hello, <%= user.username%></h2>
+
+        <a href="/posts">view posts</a>
+
+        <%if (user.role==="Ta"){%>
+            <a href="/admin/posts/new">Create post</a>
+            <a href="/admin/users">Manage Users</a>
+        <% }%>
+    <% } else {%>
+        <p>learn computer science posts</p>
+        <a href="/login.html">Login</a>
+        <a href="/register.html">Register</a>
+    <% }%>
+    </main>
+
+</body>
+</html>

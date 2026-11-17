@@ -1,0 +1,34 @@
+body {
+    font-family: arial, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+}
+
+nav {
+    background-color: #333;
+    padding: 13px;
+}
+
+nav a{
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 10px;
+}
+
+nav a:hover{
+    color: rgb(23, 23, 126);
+}
+
+main{
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+h1{
+    color: #222
+}
+
